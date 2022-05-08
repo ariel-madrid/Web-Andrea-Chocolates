@@ -1,0 +1,22 @@
+html,body{
+    background-color: rgb(253 186 116);
+}
+
+#card
+{
+    display: relative;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(184, 226, 226);
+}
+
+#card-image
+{
+    background-color: rgb(205, 226, 245);
+    background-image: url("../img/presentacion.jpeg");    
+}
+
+#fondo
+{
+    background-image: url('../img/fondo.jpeg');
+}
