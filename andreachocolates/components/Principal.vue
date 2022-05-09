@@ -1,164 +1,71 @@
 <template>
     <div>
-        <div class="flex flex-col">
-            <nav class="sticky top-0 bg-white border-gray-200 px-2 sm:px-10 py-3 rounded dark:bg-gray-800">
-                <div class="container flex flex-wrap justify-between items-center mx-auto ">
-                    <a class="flex items-center">
-                        <img src="../img/logo.jpeg" class="mr-3 h-6 sm:h-9" alt="Andrea Chocolates Logo" />
-                        <span class="self-center text-xl font-serif font-semibold whitespace-nowrap dark:text-white">Andrea Chocolates</span>
-                    </a>
-                    <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Abrir menu principal</span>
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </button>
-                    <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-                    <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-                        <li>
-                        <a href="/" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Inicio</a>
-                        </li>
-                        <li>
-                        <a href="/productos" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
-                        </li>
-                        <li>
-                        <a href="/contacto" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contacto</a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-            </nav>
+        <div v-if="!toggleModal">
+            <Landing @toggleModal="dataFromChild"></Landing>
         </div>
-        
-        <section class="relative  bg-blueGray-50">
-            <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-                <div class="absolute top-0 w-full h-full bg-center bg-cover" id="fondo">
-                    <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
-                </div>
-                <div class="container relative mx-auto">
-                    <div class="items-center flex flex-wrap">
-                        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                            <div class="pr-12">
-                                <h1 class="text-white font-semibold text-5xl">
-                                Bienvenido a Andrea Chocolates
-                                </h1>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
-                    <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-                        <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
-                    </svg>
-                </div>
-            </div>
 
-            <section class="pb-10 bg-blueGray-200 -mt-24">
-                <div class="container mx-auto px-4">
-                    <div class="flex flex-wrap">
-                        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                                <a href="#">
-                                    <img class="rounded-t-lg" src="../img/alfajores.png" alt="" />
-                                </a>
-                                <div class="px-4 py-5 flex-auto">
-                                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <h6 class="text-xl font-semibold">Alfajores</h6>
-                                    <p class="mt-2 mb-4 text-blueGray-500">
-                                        Alfajores de dos o tres capas con hermosos diseños.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-4/12 px-4 text-center">
-                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                                <a href="#">
-                                    <img class="rounded-t-lg" src="../img/presentacion.jpeg" alt="" />
-                                </a>
-                                <div class="px-4 py-5 flex-auto">
-                                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
-                                        <i class="fas fa-retweet"></i>
-                                    </div>
-                                    <h6 class="text-xl font-semibold">Cuchuflis</h6>
-                                    <p class="mt-2 mb-4 text-blueGray-500">
-                                        Diferentes variedades de Cuchuflis bañados en chocolate.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-6 w-full md:w-4/12 px-4 text-center">
-                            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                                <a href="#">
-                                    <img class="rounded-t-lg" src="../img/especiales.png" alt="" />
-                                </a>
-                                <div class="px-4 py-5 flex-auto">
-                                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
-                                        <i class="fas fa-fingerprint"></i>
-                                    </div>
-                                    <h6 class="text-xl font-semibold">Especiales</h6>
-                                    <p class="mt-2 mb-4 text-blueGray-500">
-                                        Le ofrecemos Cuchuflis, Alfajores y Paletas con diseños especiales de temporada.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+        <div v-else class="opacity-25">
+            <Landing></Landing>
+        </div>
+
+    <!--- Se pueden usar las clases de Tailwind --->
+        <div v-if="toggleModal" id="defaultModal" class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50">
+                                  
+            <FormulateForm
+                class="bg-white shadow-sm p-5 rounded max-w-sm ml-2 border border-gray-200"
+                @submit="submitHandler"
+                #default="{ isLoading }">
+                <div class="flex items-center text-gray-500 hover:text-gray-600 dark:text-white cursor-pointer">
+                            <img class="mb-5 dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1.svg" alt="previous"/>
+                             <img class="mb-5 dark:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/shopping-cart-1-svg1dark.svg" alt="previous"/>
+                            <button id="back" @click="toggleModal=false" class="mb-5 text-sm pl-2 leading-none dark:hover:text-gray-200">Volver</button>
+                </div>         
+                <h3 class="w-full text-2xl font-bold text-center mb-5 font-mono underline decoration-sky-500 truncate">Iniciar Sesión</h3>
+                    <FormulateInput class="bg-green-200 rounded p-2 pb-5 mb-2"
+                    label="Nombre de Usuario"
+                    name="Nombre"
+                    validation="required"
+                    />
+                    <FormulateInput class="bg-green-200 rounded p-2 pb-5 mb-2"
+                    label="Contraseña"
+                    name="Contraseña"
+                    validation="required"
+                    />
+                    <div class="grid grid-rows-1 grid-flow-row justify-center">
+                        <FormulateInput class="text-center text-white w-36 mt-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                        type="submit"
+                        :disabled="isLoading"
+                        :label="isLoading ? 'Cargando...' : 'Ingresar'"
+                        />
                     </div>
-                </div>
-                <footer class="">
-                    <div class="container flex flex-wrap items-center justify-center px-4 py-8 mx-auto">
-                        <div class="flex justify-center mt-4 lg:mt-0">
-                        <a href="https://www.facebook.com/andreachocolates2.0/" target="blank">
-                            <svg
-                            fill="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-6 h-6 text-blue-600"
-                            viewBox="0 0 24 24"
-                            >
-                            <path
-                                d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-                            ></path>
-                            </svg>
-                        </a>
-                        <a class="ml-3" href="https://instagram.com/andreaschocolates?igshid=YmMyMTA2M2Y=" target="blank">
-                            <svg
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            class="w-6 h-6 text-pink-400"
-                            viewBox="0 0 24 24"
-                            >
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                            <path
-                                d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
-                            ></path>
-                            </svg>
-                        </a>
-                        </div>
-                    </div>
-                </footer>
-            </section>
-      </section>
+            </FormulateForm>
+        </div>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import VueFormulate from '@braid/vue-formulate'
+import Landing from './Landing.vue'
+Vue.use(VueFormulate)
 export default {
-    data()
-    {
-        return 
+    name: "modal",
+    data() {
+        return {
+            toggleModal: null
+        };
+    },
+    methods: {
+        async submitHandler(data) {
+            await this.$axios.post("/my/api", data);
+            alert(`Thank you, ${data.name}`);
+        },
+        dataFromChild(value)
         {
-            url:'/'
+            this.toggleModal = value
         }
     },
-    setup() {
-        
-    },
+    components: { Landing }
 }
 </script>
 
